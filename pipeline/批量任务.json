@@ -1,0 +1,120 @@
+{
+    "每个账号0点多签到领商店结界":{
+        "action": "Custom",
+        "custom_action": "ForRolesToRunTask",
+        "custom_action_param": {
+            "rolenames": ["玉藻前呱", "小号1", "小号2"],
+            "tasks": [
+                {"taskname": "TASK-A-0登录角色", "wait": 1},
+                {"taskname": "1-每日签到", "wait": 0.5},
+                {"taskname": "2-领取寮包", "wait": 0.5},
+                {"taskname": "3-领取御魂加成", "wait": 0.5},
+                {"taskname": "4-领取体力", "wait": 0.5},
+                {"taskname": "5-领取勾玉", "wait": 0.5},
+                {"taskname": "6-领邮件", "wait": 0.5},
+                {"taskname": "7-查看悬赏", "wait": 0.5},
+                {"taskname": "8-领取商店每日黑蛋", "wait": 0.5},
+                {"taskname": "A-领阴阳寮体力并进入结界", "wait": 1},
+                {"taskname": "C-检测收取寄养", "wait": 0.5},
+                {"taskname": "E-检测收取自己结界卡", "wait": 0.5},
+                {"taskname": "F-收取食盒", "wait": 0.5},
+                {"taskname": "A-从结界退出回庭院", "wait": 0.5},
+                {"taskname": "TASK-B-0从庭院退出到登录界面", "wait": 1}
+            ]
+        }
+    },
+    
+    "上午下午每个账号看悬赏收阴阳寮结界":{
+        "action": "Custom",
+        "custom_action": "ForRolesToRunTask",
+        "custom_action_param": {
+            "rolenames": ["玉藻前呱", "小号1", "小号2"],
+            "tasks": [
+                {"taskname": "TASK-A-0登录角色", "wait": 1},
+                {"taskname": "1-每日签到", "wait": 0.5},
+                {"taskname": "2-领取寮包", "wait": 0.5},
+                {"taskname": "3-领取御魂加成", "wait": 0.5},
+                {"taskname": "4-领取体力", "wait": 0.5},
+                {"taskname": "5-领取勾玉", "wait": 0.5},
+                {"taskname": "6-领邮件", "wait": 0.5},
+                {"taskname": "7-查看悬赏", "wait": 0.5},
+                {"taskname": "A-领阴阳寮体力并进入结界", "wait": 1},
+                {"taskname": "C-检测收取寄养", "wait": 0.5},
+                {"taskname": "E-检测收取自己结界卡", "wait": 0.5},
+                {"taskname": "F-收取食盒", "wait": 0.5},
+                {"taskname": "A-从结界退出回庭院", "wait": 0.5},
+                {"taskname": "TASK-B-0从庭院退出到登录界面", "wait": 1}
+            ]
+        }
+    },
+
+    "每个账号查看神秘商店":{
+        "action": "Custom",
+        "custom_action": "ForRolesToRunTask",
+        "custom_action_param": {
+            "rolenames": ["玉藻前呱", "小号1", "小号2"],
+            "tasks": [
+                {"taskname": "TASK-A-0登录角色", "wait": 1},
+                {"taskname": "1-每日签到", "wait": 0.5},
+                {"taskname": "2-领取寮包", "wait": 0.5},
+                {"taskname": "3-领取御魂加成", "wait": 0.5},
+                {"taskname": "4-领取体力", "wait": 0.5},
+                {"taskname": "5-领取勾玉", "wait": 0.5},
+                {"taskname": "6-领邮件", "wait": 0.5},
+                {"taskname": "10-查看神秘商店并截图记录", "wait": 1},
+                {"taskname": "TASK-B-0从庭院退出到登录界面", "wait": 1}
+            ]
+        }
+    },
+
+    "每个账号查看悬赏":{
+        "action": "Custom",
+        "custom_action": "ForRolesToRunTask",
+        "custom_action_param": {
+            "rolenames": ["玉藻前呱", "小号1", "小号2"],
+            "tasks": [
+                {"taskname": "TASK-A-0登录角色", "wait": 1},
+                {"taskname": "1-每日签到", "wait": 0.5},
+                {"taskname": "2-领取寮包", "wait": 0.5},
+                {"taskname": "3-领取御魂加成", "wait": 0.5},
+                {"taskname": "4-领取体力", "wait": 0.5},
+                {"taskname": "5-领取勾玉", "wait": 0.5},
+                {"taskname": "6-领邮件", "wait": 0.5},
+                {"taskname": "7-查看悬赏", "wait": 0.5},
+                {"taskname": "TASK-B-0从庭院退出到登录界面", "wait": 1}
+            ]
+        }
+    },
+
+
+    "上线刷个同心队15助战":{
+        "action": "Custom",
+        "custom_action": "ForRolesToRunTask",
+        "custom_action_param": {
+            "rolenames": ["玉藻前呱", "小号1", "小号2"],
+            "tasks": [
+                {"taskname": "TASK-A-0登录角色", "wait": 1},
+                {"taskname": "A-从庭院进入组队界面", "wait": 1},
+                {"taskname": "TASK-B-0从庭院退出到登录界面", "wait": 1}
+            ]
+        }
+    },
+
+    "逢魔测试": {
+        "action": "Custom",
+        "custom_action": "ForRolesToRunTask",
+        "custom_action_param": {
+            "rolenames": ["玉藻前呱", "小号1", "小号2"],
+            "tasks": [
+                {"taskname": "TASK-A-0登录角色", "wait": 1},
+                {"taskname": "1-每日签到", "wait": 0.5},
+                {"taskname": "2-领取寮包", "wait": 0.5},
+                {"taskname": "3-领取御魂加成", "wait": 0.5},
+                {"taskname": "4-领取体力", "wait": 0.5},
+                {"taskname": "5-领取勾玉", "wait": 0.5},
+                {"taskname": "6-领邮件", "wait": 0.5},
+                {"taskname": "TASK-F-0从庭院进入町中", "wait": 1}
+            ]
+        }
+    }
+}

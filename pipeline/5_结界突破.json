@@ -1,0 +1,210 @@
+{
+    "结界突破一次":{
+        "next": [
+            "检测并点击准备", "查找进攻按钮并点击", 
+            "查找第5颗勋章并点击-左列", "查找第5颗空勋章并点击-左列", 
+            "查找第5颗勋章并点击-中列", "查找第5颗空勋章并点击-中列", 
+            "查找第5颗勋章并点击-右列", "查找第5颗空勋章并点击-右列"
+        ]
+    },
+    "查找第5颗勋章并点击-左列": {
+        "recognition": "TemplateMatch",
+        "roi": [381,202,66,332],
+        "template": "突破/勋章.png",
+        "action": "Click",
+        "next": ["查找进攻按钮并点击"]
+    },
+    "查找第5颗空勋章并点击-左列": {
+        "recognition": "TemplateMatch",
+        "roi": [381,202,66,332],
+        "template": "突破/空勋章.png",
+        "action": "Click",
+        "next": ["查找进攻按钮并点击"]
+    },
+    "查找第5颗勋章并点击-中列": {
+        "recognition": "TemplateMatch",
+        "roi": [717,203,58,326],
+        "template": "突破/勋章.png",
+        "action": "Click",
+        "next": ["查找进攻按钮并点击"]
+    },
+    "查找第5颗空勋章并点击-中列": {
+        "recognition": "TemplateMatch",
+        "roi": [717,203,58,326],
+        "template": "突破/空勋章.png",
+        "action": "Click",
+        "next": ["查找进攻按钮并点击"]
+    },
+    "查找第5颗勋章并点击-右列": {
+        "recognition": "TemplateMatch",
+        "roi": [1048,204,61,332],
+        "template": "突破/勋章.png",
+        "action": "Click",
+        "next": ["查找进攻按钮并点击"]
+    },
+    "查找第5颗空勋章并点击-右列": {
+        "recognition": "TemplateMatch",
+        "roi": [1048,204,61,332],
+        "template": "突破/空勋章.png",
+        "action": "Click",
+        "next": ["查找进攻按钮并点击"]
+    },
+    "查找进攻按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi" : [302,326,840,380],
+        "template": "突破/突破进攻按钮.png",
+        "action": "Click",
+        "next": ["检测并点击准备", "确认进入战斗中并等待"],
+        "timeout": 3000,
+        "on_error": ["返回庭院"]
+    },
+    "检测并点击准备": {
+        "recognition": "TemplateMatch",
+        "roi": [1124,555,106,66],
+        "template": "突破/准备按钮.png",
+        "action": "Click",
+        "next": ["确认进入战斗中并等待"]
+    },
+    "确认进入战斗中并等待": {
+        "recognition": "TemplateMatch",
+        "roi": [225,7,48,50],
+        "template": "突破/举报按钮.png",
+        "action": "DoNothing",
+        "next": ["查找突破成功达摩并点击"],
+        "interrupt": ["等待10秒"]
+    },
+    "查找突破成功达摩并点击": {
+        "recognition": "TemplateMatch",
+        "roi" : [567,451,75,84],
+        "template": "突破/突破成功达摩.png",
+        "action": "Click",
+        "target": [43,27,67,38],
+        "post_delay": 2000,
+        "next": ["点击左上角3次"]
+    },
+    "等待10秒":{
+        "action": "DoNothing",
+        "pre_delay": 10000
+    },
+    "点击左上角1次": {
+        "action": "Click",
+        "roi": [43,27,67,38],
+        "post_delay": 1000
+    },
+    "点击左上角3次": {
+        "action": "Custom",
+        "on_error": [],
+        "next": [],
+        "custom_action": "LoopAction",
+        "custom_action_param": {
+            "action_list": [
+                "点击左上角1次"
+            ],
+            "loop_times": 4
+        }
+    },
+    "打x次突破": {
+        "action": "Custom",
+        "on_error": [],
+        "next": [],
+        "custom_action": "LoopAction",
+        "custom_action_param": {
+            "action_list": [
+                "结界突破一次"
+            ],
+            "loop_times": 9
+        }
+    },
+    "退结界突破一次": {
+        "next": [
+            "检测确认退出按钮并点击", "检测退出按钮并点击", 
+            "退-查找第5颗勋章并点击-左列", "退-查找第5颗空勋章并点击-左列", 
+            "退-查找第5颗勋章并点击-中列", "退-查找第5颗空勋章并点击-中列", 
+            "退-查找第5颗勋章并点击-右列", "退-查找第5颗空勋章并点击-右列"
+        ]
+    },
+    "检测退出按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi": [15,10,43,45],
+        "template": "突破/退出按钮.png",
+        "action": "Click",
+        "next": ["检测确认退出按钮并点击"]
+    },
+    "检测确认退出按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi": [669,384,143,76],
+        "template": "突破/确认退出.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": ["点击左上角3次"]
+    },
+    "退-查找第5颗勋章并点击-左列": {
+        "recognition": "TemplateMatch",
+        "roi": [381,202,66,332],
+        "template": "突破/勋章.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["退-查找进攻按钮并点击"]
+    },
+    "退-查找第5颗空勋章并点击-左列": {
+        "recognition": "TemplateMatch",
+        "roi": [381,202,66,332],
+        "template": "突破/空勋章.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["退-查找进攻按钮并点击"]
+    },
+    "退-查找第5颗勋章并点击-中列": {
+        "recognition": "TemplateMatch",
+        "roi": [717,203,58,326],
+        "template": "突破/勋章.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["退-查找进攻按钮并点击"]
+    },
+    "退-查找第5颗空勋章并点击-中列": {
+        "recognition": "TemplateMatch",
+        "roi": [717,203,58,326],
+        "template": "突破/空勋章.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["退-查找进攻按钮并点击"]
+    },
+    "退-查找第5颗勋章并点击-右列": {
+        "recognition": "TemplateMatch",
+        "roi": [1048,204,61,332],
+        "template": "突破/勋章.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["退-查找进攻按钮并点击"]
+    },
+    "退-查找第5颗空勋章并点击-右列": {
+        "recognition": "TemplateMatch",
+        "roi": [1048,204,61,332],
+        "template": "突破/空勋章.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": ["退-查找进攻按钮并点击"]
+    },
+    "退-查找进攻按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi" : [302,326,840,380],
+        "template": "突破/突破进攻按钮.png",
+        "action": "Click",
+        "next": ["检测退出按钮并点击"],
+        "timeout": 3000,
+        "on_error": ["返回庭院"]
+    },
+    "退x次突破": {
+        "action": "Custom",
+        "on_error": [],
+        "next": [],
+        "custom_action": "LoopAction",
+        "custom_action_param": {
+            "action_list": [
+                "退结界突破一次"
+            ],
+            "loop_times": 2
+        }
+    }
+}

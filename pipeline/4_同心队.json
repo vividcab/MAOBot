@@ -1,0 +1,130 @@
+{
+    "A-从庭院进入组队界面": {
+        "next": ["检测商店图标点击组队图标"],
+        "interrupt": ["检测卷轴是否打开"],
+        "timeout": 3000
+    },
+    "检测商店图标点击组队图标": {
+        "recognition": "TemplateMatch",
+        "roi": [671,618,59,43],
+        "roi_offset": [-30, -10, 60, 20],
+        "template": "同心队/商店图标.png",
+        "action": "Click",
+        "target": [448,629,40,30],
+        "post_delay": 1500,
+        "next": ["检测同心队图标点击"]
+    },
+    "检测同心队图标点击": {
+        "recognition": "TemplateMatch",
+        "roi": [38,596,67,51],
+        "template": "同心队/同心队.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测存体力图标点击"]
+    },
+    "检测存体力图标点击": {
+        "recognition": "TemplateMatch",
+        "roi": [925,263,48,45],
+        "template": "同心队/存体力.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测一件预存图标点击"]
+    },
+    "检测一件预存图标点击": {
+        "recognition": "TemplateMatch",
+        "roi": [1189,509,58,67],
+        "template": "同心队/一键预存.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测预存确定按钮点击"]
+    },
+    "检测预存确定按钮点击": {
+        "recognition": "OCR",
+        "roi": [703,405,113,51],
+        "expected": "确定",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测预存返回按钮点击"]
+    },
+    "检测预存返回按钮点击": {
+        "recognition": "TemplateMatch",
+        "roi": [118,13,90,52],
+        "template": "同心队/预存左上角.png",
+        "action": "Click",
+        "target": [30,19,45,37],
+        "post_delay": 1500,
+        "next": ["检测集结图标点击"]
+    },
+    "检测集结图标点击": {
+        "recognition": "TemplateMatch",
+        "roi": [1091,617,85,66],
+        "template": "同心队/同心队集结.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["点击副本集结"]
+    },
+    "点击副本集结": {
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "target": [525,483,216,45],
+        "post_delay": 1500,
+        "next": ["检测副本按钮点击"]
+    },
+    "检测副本按钮点击": {
+        "recognition": "TemplateMatch",
+        "roi": [967,635,54,56],
+        "template": "同心队/副本按钮.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测创建队伍按钮点击"]
+    },
+    "检测创建队伍按钮点击": {
+        "recognition": "TemplateMatch",
+        "roi": [995,600,150,51],
+        "template": "同心队/创建队伍按钮.png",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": ["检测创建按钮点击"]
+    },
+    "检测创建按钮点击": {
+        "recognition": "TemplateMatch",
+        "roi" : [828,562,100,54],
+        "template": "同心队/创建按钮.png",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": ["检测自动挑战点击"]
+    },
+    "检测自动挑战点击": {
+        "recognition": "OCR",
+        "roi" : [141,633,123,51],
+        "expected" : "自动挑战",
+        "action": "Click",
+        "post_delay": 220000,
+        "next": ["检测取消按钮点击"],
+        "interrupt": [],
+        "rate_limit": 5000,
+        "timeout": 100000
+    },
+    "检测取消按钮点击": {
+        "recognition": "TemplateMatch",
+        "roi" : [474,404,92,55],
+        "template": "同心队/取消按钮.png",
+        "action": "Click",
+        "post_delay": 1300,
+        "next": ["退出组队"]
+    },
+    "退出组队": {
+        "action": "Click",
+        "target": [30,22,33,35],
+        "post_delay": 1500,
+        "next": ["检测确定按钮点击"]
+    },
+    "检测确定按钮点击": {
+        "recognition": "TemplateMatch",
+        "roi" : [708,405,98,52],
+        "template": "同心队/确定按钮.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["点击左上角1次"]
+    }
+}

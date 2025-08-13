@@ -1,0 +1,4 @@
+maafw
+pandas
+loguru
+pillow

@@ -1,0 +1,22 @@
+{
+    "STATUS-检测游戏已经启动到登录界面了":{
+        "recognition": "TemplateMatch",
+        "roi" : [6,516,270,137],
+        "template": ["平台区服/适龄提示.png"],
+        "threshold": 0.9
+    },
+    
+    "TASK-启动游戏到登录界面":{
+        "action": "StartApp",
+        "package": "com.netease.onmyoji.wyzymnqsd_cps",
+        "post_delay": 5000,
+        "next": ["STATUS-检测游戏已经启动到登录界面了"],
+        "rate_limit": 5000,
+        "timeout": 40000
+    },
+    "TASK-关闭游戏": {
+        "action": "StopApp",
+        "package": "com.netease.onmyoji.wyzymnqsd_cps",
+        "post_delay": 3000
+    }
+}

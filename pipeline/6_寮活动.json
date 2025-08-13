@@ -1,0 +1,126 @@
+{
+    "TASK-A-0从庭院进入阴阳寮大厅": {
+        "recognition": "TemplateMatch",
+        "roi" : [547,597,58,42],
+        "template": "阴阳寮/寮图标.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "next": ["A-1从寮大厅打开神社页面"],
+        "interrupt": []
+    },
+
+
+    "A-1从寮大厅打开神社页面": {
+        "recognition": "TemplateMatch",
+        "roi": [865,618,67,58],
+        "template": "阴阳寮/神社按钮.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": ["A-2从神社标签页判断道馆是否已开启"],
+        "interrupt": ["ITR-检测寮种树活动弹窗并关闭", "ACT-检测神社按钮并点击"]
+    },
+    "ITR-检测寮种树活动弹窗并关闭": {
+        "recognition": "TemplateMatch",
+        "roi": [684,7,228,209],
+        "template": "阴阳寮/寮种树活动弹窗叉号.png",
+        "action": "Click",
+        "post_delay": 500
+    },
+    "ACT-检测神社按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi": [865,618,67,58],
+        "template": "阴阳寮/神社按钮.png",
+        "action": "Click",
+        "post_delay": 1000
+    },
+
+
+    "A-2从神社标签页判断道馆是否已开启": {
+        "recognition": "TemplateMatch",
+        "roi": [441,201,76,61],
+        "template": "阴阳寮/道馆牌子.png",
+        "action": "DoNothing",
+        "next": ["A-3-1检测到道馆已开启进入道馆突破地图界面", "A-3-2检测到道馆未开启点击左上角返回寮大厅-等待20秒"],
+        "interrupt": []
+    },
+
+
+    "A-3-1检测到道馆已开启进入道馆突破地图界面": {
+        "recognition": "TemplateMatch",
+        "roi": [576,172,44,88],
+        "template": "阴阳寮/道馆已开启.png",
+        "inverse": false,
+        "action": "Click",
+        "post_delay": 2000,
+        "next": ["A-4从道馆突破地图界面点击目标道馆进入寮境广场"],
+        "interrupt": ["ACT-检测道馆已开启标志并点击"]
+    },
+    "ACT-检测道馆已开启标志并点击": {
+        "recognition": "TemplateMatch",
+        "roi": [576,172,44,88],
+        "template": "阴阳寮/道馆已开启.png",
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "A-3-2检测到道馆未开启点击左上角返回寮大厅-等待20秒": {
+        "recognition": "TemplateMatch",
+        "roi": [576,172,44,88],
+        "template": "阴阳寮/道馆已开启.png",
+        "inverse": true,
+        "action": "Click",
+        "target": [26,13,41,36],
+        "post_delay": 20000,
+        "next": ["A-1从寮大厅打开神社页面"],
+        "interrupt": ["ACT-检测到还处于神社界面点击一下左上角返回按钮返回寮大厅"]
+    },
+    "ACT-检测到还处于神社界面点击一下左上角返回按钮返回寮大厅": {
+        "recognition": "TemplateMatch",
+        "roi": [715,3,122,64],
+        "template": "阴阳寮/神社界面房檐.png",
+        "action": "Click",
+        "target": [26,13,41,36]
+    },
+
+
+    "A-4从道馆突破地图界面点击目标道馆进入寮境广场": {
+        "recognition": "TemplateMatch",
+        "roi": [27,614,70,47],
+        "template": "阴阳寮/道馆地图左下角防守战报.png",
+        "action": "DoNothing",
+        "next": ["A-5从寮境开始挑战道馆"],
+        "interrupt": ["ACT-检测目标道馆的勋章按钮点击进入寮境"]
+    },
+    "ACT-检测目标道馆的勋章按钮点击进入寮境": {
+        "recognition": "TemplateMatch",
+        "roi": [146,99,839,490],
+        "template": "阴阳寮/进攻目标道馆.png",
+        "action": "Click",
+        "post_delay": 800
+    },
+
+
+    "A-5从寮境开始挑战道馆": {
+        "recognition": "TemplateMatch",
+        "roi": [1124,554,100,75],
+        "template": "阴阳寮/挑战道馆.png",
+        "action": "Click",
+        "post_delay": 3000,
+        "next": ["A-6从道馆战斗过程等待打完结算奖励"],
+        "interrupt": ["ACT-检测道馆挑战按钮并点击"],
+        "rate_limit": 10000,
+        "timeout": 300000
+    },
+    "ACT-检测道馆挑战按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi": [1124,554,100,75],
+        "template": "阴阳寮/挑战道馆.png",
+        "action": "Click",
+        "post_delay": 3000
+    },
+
+
+    "A-6从道馆战斗过程等待打完结算奖励": {
+        "next": []
+    }
+
+}
