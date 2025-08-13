@@ -1,0 +1,64 @@
+{
+    "检测已经在组队界面然后判断是否有队友": {
+        "recognition": "TemplateMatch",
+        "roi": [1183,611,69,62],
+        "template" : "组队战斗/右下角挑战按钮.png",
+        "action": "DoNothing",
+        "next": ["检测挑战按钮为黄色然后点击"],
+        "interrupt": [],
+        "rate_limit": 2000,
+        "timeout": 250000
+    },
+    "检测挑战按钮为黄色然后点击": {
+        "recognition": "ColorMatch",
+        "roi" : [1206,632,28,13],
+        "method": 40,
+        "upper": [60,255,255],
+        "lower": [10,40,40],
+        "count": 300,
+        "action": "Click",
+        "post_delay": 2500,
+        "next": ["检测右下角有准备按钮就点击一下", "检测正在战斗等待X秒"],
+        "interrupt": [],
+        "rate_limit": 2000,
+        "timeout": 3000,
+        "on_error": []
+    },
+    "检测右下角有准备按钮就点击一下": {
+        "recognition": "TemplateMatch",
+        "roi": [1130,561,95,54],
+        "template" : "组队战斗/准备按钮.png",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": ["检测正在战斗等待X秒"],
+        "interrupt": ["点击一下准备按钮"],
+        "timeout": 3000
+    },
+    "点击一下准备按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1130,561,95,54],
+        "template" : "组队战斗/准备按钮.png",
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "检测正在战斗等待X秒": {
+        "recognition": "TemplateMatch",
+        "roi": [17,12,43,40],
+        "template": "组队战斗/左上角返回按钮.png",
+        "action": "DoNothing",
+        "post_delay": 11000,
+        "next": ["检测已经在组队界面然后判断是否有队友"],
+        "interrupt": ["检测有御魂满了的弹窗就关闭", "模拟右手拇指点击一下屏幕"],
+        "rate_limit": 500
+    },
+    "检测有御魂满了的弹窗就关闭": {
+        "recognition": "TemplateMatch",
+        "roi": [588,396,59,54],
+        "template" : "组队战斗/确御魂满了弹窗确认按钮.png",
+        "action": "Click"
+    },
+    "模拟右手拇指点击一下屏幕": {
+        "action": "Click",
+        "target": [823,471,312,146]
+    }
+}

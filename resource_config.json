@@ -1,0 +1,429 @@
+{
+    "resource_name": "MAOBot_阴阳师多号党助手",
+    "resource_version": "v0.1.0",
+    "resource_author": "玉藻前呱",
+    "resource_update_service_id": "",
+    "resource_rep_url": "https://github.com/vividcab/MAOBot",
+    "resource_description": "MAOBot 即 MAA Assistant Omiyoji Bot ，旨在帮助多号党玩家高效管理多账号的日常任务，例如：签到、领取各种每日礼包、检查悬赏任务、查看神秘商店、收取寄养和放置结界卡、混逢魔、同心队刷寮三十或好友助战。",
+    "resource_icon": "/assets/logo.png",
+    "agent": {
+        "type": "python",
+        "version": "3.11",
+        "agent_path": "./MaaAgent.py",
+        "agent_params": "-path ./custom_dir",
+        "requirements_path": "./requirements.txt",
+        "use_venv": true
+    },
+    "resource_tasks": [
+        {
+            "task_name": "启动游戏",
+            "task_entry": "TASK-启动游戏到登录界面",
+            "option": []
+        },
+        {
+            "task_name": "登录某个角色",
+            "task_entry": "TASK-A-0登录角色",
+            "option": [
+                "账号",
+                "平台",
+                "区服名称"
+            ]
+        },
+        {
+            "task_name": "截图测试",
+            "task_entry": "Screenshot",
+            "option": []
+        },
+        {
+            "task_name": "多账号-每日签到领商店看悬赏收结界",
+            "task_entry": "每个账号0点多签到领商店结界",
+            "option": [
+                "角色名列表1"
+            ]
+        },
+        {
+            "task_name": "多账号-查看悬赏收结界",
+            "task_entry": "上午下午每个账号看悬赏收阴阳寮结界",
+            "option": [
+                "角色名列表2"
+            ]
+        },
+        {
+            "task_name": "多账号-查看神秘商店",
+            "task_entry": "每个账号查看神秘商店",
+            "option": [
+                "角色名列表3"
+            ]
+        },
+        {
+            "task_name": "多账号-查看悬赏任务",
+            "task_entry": "每个账号查看悬赏",
+            "option": [
+                "角色名列表4"
+            ]
+        },
+        {
+            "task_name": "多账号-刷同心队",
+            "task_entry": "上线刷个同心队15助战",
+            "option": [
+                "角色名列表5"
+            ]
+        },
+        {
+            "task_name": "多账号-混个逢魔",
+            "task_entry": "逢魔测试",
+            "option": [
+                "角色名列表6"
+            ]
+        }
+    ],
+    "options": [
+        {
+            "name": "账号",
+            "type": "input",
+            "default": "yuzaoqian",
+            "pipeline_override": {
+                "重写账号角色信息": {
+                    "custom_action_param": {
+                        "account": "{value}"
+                    }
+                }
+            }
+        },
+        {
+            "name": "平台",
+            "type": "select",
+            "default": "安卓端",
+            "pipeline_override": {
+                "安卓端": {
+                    "重写账号角色信息": {
+                        "custom_action_param": {
+                            "platform": "安卓端"
+                        }
+                    }
+                },
+                "苹果端": {
+                    "重写账号角色信息": {
+                        "custom_action_param": {
+                            "platform": "苹果端"
+                        }
+                    }
+                }
+            },
+            "choices": [
+                {
+                    "name": "安卓端",
+                    "value": "安卓端"
+                },
+                {
+                    "name": "苹果端",
+                    "value": "苹果端"
+                }
+            ]
+        },
+        {
+            "name": "区服名称",
+            "type": "input",
+            "default": "春之樱",
+            "pipeline_override": {
+                "重写账号角色信息": {
+                    "custom_action_param": {
+                        "servername": "{value}"
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表1",
+            "type": "input",
+            "default": "大号,小号1,小号2,小号3",
+            "pipeline_override": {
+                "每个账号0点多签到领商店结界": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "7-查看悬赏",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "10-查看神秘商店并截图记录",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "A-领阴阳寮体力并进入结界",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "C-检测收取寄养",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "E-检测收取自己结界卡",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "F-收取食盒",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "A-从结界退出回庭院",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "TASK-B-0从庭院退出到登录界面",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表2",
+            "type": "input",
+            "default": "大号,小号1,小号2,小号3",
+            "pipeline_override": {
+                "每个账号0点多签到领商店结界": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "1-每日签到",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "2-领取寮包",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "3-领取御魂加成",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "4-领取体力",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "5-领取勾玉",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "6-领邮件",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "7-查看悬赏",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "A-领阴阳寮体力并进入结界",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "C-检测收取寄养",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "E-检测收取自己结界卡",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "F-收取食盒",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "A-从结界退出回庭院",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "TASK-B-0从庭院退出到登录界面",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表3",
+            "type": "input",
+            "default": "大号,小号1,小号2,小号3",
+            "pipeline_override": {
+                "每个账号0点多签到领商店结界": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "1-每日签到",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "2-领取寮包",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "3-领取御魂加成",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "4-领取体力",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "5-领取勾玉",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "6-领邮件",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "10-查看神秘商店并截图记录",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "TASK-B-0从庭院退出到登录界面",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表4",
+            "type": "input",
+            "default": "大号,小号1,小号2,小号3",
+            "pipeline_override": {
+                "每个账号0点多签到领商店结界": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "1-每日签到",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "2-领取寮包",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "3-领取御魂加成",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "4-领取体力",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "5-领取勾玉",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "6-领邮件",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "7-查看悬赏",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "TASK-B-0从庭院退出到登录界面",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表5",
+            "type": "input",
+            "default": "大号,小号1,小号2,小号3",
+            "pipeline_override": {
+                "每个账号0点多签到领商店结界": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "A-从庭院进入组队界面",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "TASK-B-0从庭院退出到登录界面",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表6",
+            "type": "input",
+            "default": "大号,小号1,小号2,小号3",
+            "pipeline_override": {
+                "每个账号0点多签到领商店结界": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "1-每日签到",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "2-领取寮包",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "3-领取御魂加成",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "4-领取体力",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "5-领取勾玉",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "6-领邮件",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "TASK-F-0从庭院进入町中",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    
+    "检测到初始庭院皮肤町中牌子": {
+        "recognition": "TemplateMatch",
+        "roi": [683,229,58,56],
+        "template": "庭院/初始庭院町中牌子.png"
+    },
+    "检测到枫叶庭院皮肤町中牌子": {
+        "recognition": "TemplateMatch",
+        "roi": [854,257,56,53],
+        "template": "庭院/枫叶庭院町中牌子.png"
+    },
+
+    "返回庭院": {
+        "next": ["检测退出游戏弹窗"],
+        "interrupt": ["按下Esc"]
+    },
+    "检测退出游戏弹窗": {
+        "recognition": "OCR",
+        "roi" : [773,420,64,40],
+        "expected" : "取消",
+        "action": "Click"
+    },
+    "按下Esc": {
+        "recognition": "DirectHit",
+        "action": "Key",
+        "key": 111,
+        "post_delay": 800
+    }
+}

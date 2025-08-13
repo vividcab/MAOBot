@@ -1,0 +1,9 @@
+/assets/account_info.csv
+/logs/
+/model/
+/screenshot/
+
+/pipeline/priv*
+
+__pycache__/
+*.pyc
