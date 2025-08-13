@@ -467,7 +467,6 @@ jobs:
             ### 仅资源包（仅包含 MAOBot 资源，适用于已有 MFWPH 的用户）
             - **通用**: `MAO_Bot_RESOURCES_ONLY.zip`
             
-            [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAOBot)
           draft: false
           prerelease: false
           artifacts: ./release_files/*
