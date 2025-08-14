@@ -44,12 +44,13 @@
             "servername": "区服名称"
         },
         "next":["TASK-A-3检测已经打开了账号选择列表开始查找账号"],
-        "interrupt": ["ACT-点击一下账号选择栏"]
+        "interrupt": ["ACT-点击一下账号选择栏"],
+        "rate_limit": 1500
     },
     "ACT-点击一下账号选择栏":{
         "action": "Click",
         "target": [499,296,283,67],
-        "post_delay": 1000
+        "post_delay": 1500
     },
 
     "TASK-A-3检测已经打开了账号选择列表开始查找账号":{

@@ -147,11 +147,35 @@
                                 "wait": 1
                             },
                             {
+                                "taskname": "1-每日签到",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "2-领取寮包",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "3-领取御魂加成",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "4-领取体力",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "5-领取勾玉",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "6-领邮件",
+                                "wait": 0.5
+                            },
+                            {
                                 "taskname": "7-查看悬赏",
                                 "wait": 0.5
                             },
                             {
-                                "taskname": "10-查看神秘商店并截图记录",
+                                "taskname": "8-领取商店每日黑蛋",
                                 "wait": 0.5
                             },
                             {
@@ -188,7 +212,7 @@
             "type": "input",
             "default": "大号,小号1,小号2,小号3",
             "pipeline_override": {
-                "每个账号0点多签到领商店结界": {
+                "上午下午每个账号看悬赏收阴阳寮结界": {
                     "custom_action_param": {
                         "rolenames": "{value}",
                         "tasks": [
@@ -258,7 +282,7 @@
             "type": "input",
             "default": "大号,小号1,小号2,小号3",
             "pipeline_override": {
-                "每个账号0点多签到领商店结界": {
+                "每个账号查看神秘商店": {
                     "custom_action_param": {
                         "rolenames": "{value}",
                         "tasks": [
@@ -308,7 +332,7 @@
             "type": "input",
             "default": "大号,小号1,小号2,小号3",
             "pipeline_override": {
-                "每个账号0点多签到领商店结界": {
+                "每个账号查看悬赏": {
                     "custom_action_param": {
                         "rolenames": "{value}",
                         "tasks": [
@@ -358,7 +382,7 @@
             "type": "input",
             "default": "大号,小号1,小号2,小号3",
             "pipeline_override": {
-                "每个账号0点多签到领商店结界": {
+                "上线刷个同心队15助战": {
                     "custom_action_param": {
                         "rolenames": "{value}",
                         "tasks": [
@@ -384,7 +408,7 @@
             "type": "input",
             "default": "大号,小号1,小号2,小号3",
             "pipeline_override": {
-                "每个账号0点多签到领商店结界": {
+                "逢魔测试": {
                     "custom_action_param": {
                         "rolenames": "{value}",
                         "tasks": [
@@ -413,7 +437,7 @@
                                 "wait": 0.5
                             },
                             {
-                                "taskname": "6-领邮件",
+                                "taskname": "7-查看悬赏",
                                 "wait": 0.5
                             },
                             {

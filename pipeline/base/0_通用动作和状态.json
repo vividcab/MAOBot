@@ -29,6 +29,7 @@
         "recognition": "OCR",
         "roi": [580, 350, 280, 250],
         "expected": ["确定", "确认"],
+        "order_by": "Vertical",
         "action": "Click",
         "post_delay": 800
     },
