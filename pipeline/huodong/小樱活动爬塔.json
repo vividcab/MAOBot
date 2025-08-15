@@ -1,0 +1,144 @@
+{
+    "HD-小樱活动探索爬塔任务入口": {
+        "recognition": "TemplateMatch",
+        "roi": [81,8,143,53],
+        "template": "小樱活动爬塔/左上角文字.png",
+        "pre_wait_freezes": 300,
+        "action": "Click",
+        "post_delay": 2000,
+        "next": ["HD-END检测没有门票了停止任务", "HD-1检测到探索战斗或评审挑战按钮并点击", "HD-2检测到答题按钮", "HD-3检测到绘制按钮"],
+        "interrupt": ["ACT-检测各类右上部分叉号并点一下", "ACT-检测到右上角跳过按钮并点一下"],
+        "rate_limit": 2000
+    },
+    "HD-END检测没有门票了停止任务": {
+        "recognition": "OCR",
+        "roi": [1158,15,58,33],
+        "only_rec": true,
+        "expected": "^0$",
+        "action": "DoNothing",
+        "next": []
+    },
+    "ACT-检测到右上角跳过按钮并点一下": {
+        "recognition": "TemplateMatch",
+        "roi": [1151,28,69,43],
+        "template": "小樱活动爬塔/跳过绘制动画.png",
+        "action": "Click",
+        "post_delay": 1000
+    },
+
+    
+    "HD-1检测到探索战斗或评审挑战按钮并点击": {
+        "recognition": "TemplateMatch",
+        "roi": [1124,578,104,89],
+        "template": ["小樱活动爬塔/普通战斗按钮.png", "小樱活动爬塔/评审挑战按钮.png"],
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["爬塔战斗任务"]
+    },
+    "爬塔战斗任务": {
+        "next": ["检测到战斗准备按钮"],
+        "interrupt": ["ACT-检测点击探索战斗或评审挑战按钮"]
+    },
+    "ACT-检测点击探索战斗或评审挑战按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1124,578,104,89],
+        "template": ["小樱活动爬塔/普通战斗按钮.png", "小樱活动爬塔/评审挑战按钮.png"],
+        "action": "Click",
+        "post_delay": 3000
+    },
+    "检测到战斗准备按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1129,559,96,57],
+        "template": "小樱活动爬塔/战斗准备按钮.png",
+        "pre_wait_freezes": 500,
+        "action": "Click",
+        "post_delay": 1200,
+        "next": ["检测到战斗准备按钮已经消失"],
+        "interrupt": ["ACT-检测点击战斗准备按钮"]
+    },
+    "ACT-检测点击战斗准备按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1129,559,96,57],
+        "template": "小樱活动爬塔/战斗准备按钮.png",
+        "action": "Click",
+        "post_delay": 1200
+    },
+    "检测到战斗准备按钮已经消失": {
+        "recognition": "TemplateMatch",
+        "roi": [1129,559,96,57],
+        "template": "小樱活动爬塔/战斗准备按钮.png",
+        "inverse": true,
+        "action": "DoNothing",
+        "next": ["绿标5号位等待战斗X秒"]
+    },
+    "绿标5号位等待战斗X秒": {
+        "action": "Click",
+        "target": [998,487,57,62],
+        "post_delay": 13000,
+        "next": ["HD-小樱活动探索爬塔任务入口"],
+        "interrupt": ["ACT-检测各类右上部分叉号并点一下", "检测有御魂满了的弹窗就关闭", "ACT-随便点击右侧空白处"],
+        "rate_limit": 1500
+    },
+    "ACT-随便点击右侧空白处": {
+        "action": "Click",
+        "target": [1078,112,167,385],
+        "post_delay": 1200
+    },
+
+
+    "HD-2检测到答题按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1128,580,93,88],
+        "template": "小樱活动爬塔/答题按钮.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["点击第1个选项并确认答案"]
+    },
+    "点击第1个选项并确认答案": {
+        "recognition": "TemplateMatch",
+        "roi": [545,96,122,47],
+        "template": "小樱活动爬塔/答题弹窗特征.png",
+        "action": "Click",
+        "target": [473,302,139,49],
+        "post_delay": 500,
+        "next": ["点击确认答案按钮"]
+    },
+    "点击确认答案按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [482,542,134,41],
+        "template": "小樱活动爬塔/确认答案按钮.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": ["HD-小樱活动探索爬塔任务入口"],
+        "interrupt": ["点击第2个选项并确认答案"]
+    },
+    "点击第2个选项并确认答案": {
+        "recognition": "TemplateMatch",
+        "roi": [545,96,122,47],
+        "template": "小樱活动爬塔/答题弹窗特征.png",
+        "action": "Click",
+        "target": [477,421,144,52],
+        "post_delay": 500,
+        "next": ["点击确认答案按钮"]
+    },
+
+
+    "HD-3检测到绘制按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1125,576,100,93],
+        "template": "小樱活动爬塔/绘制按钮.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测到绘制完成按钮"]
+    },
+    "检测到绘制完成按钮": {
+        "recognition": "TemplateMatch",
+        "roi": [1051,591,86,53],
+        "template": "小樱活动爬塔/绘制完成按钮.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["HD-小樱活动探索爬塔任务入口"],
+        "interrupt": ["ACT-检测到右上角跳过按钮并点一下", "ACT-检测各类右上部分叉号并点一下"],
+        "rate_limit": 1500
+    }
+}

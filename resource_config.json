@@ -30,6 +30,11 @@
             ]
         },
         {
+            "task_name": "当前角色一键爬塔",
+            "task_entry": "执行任务列表-活动爬塔",
+            "option": []
+        },
+        {
             "task_name": "截图测试",
             "task_entry": "Screenshot",
             "option": []
@@ -74,6 +79,13 @@
             "task_entry": "逢魔测试",
             "option": [
                 "角色名列表6"
+            ]
+        },
+        {
+            "task_name": "多账号-一键活动爬塔",
+            "task_entry": "批量角色任务模板",
+            "option": [
+                "角色名列表-一键活动爬塔"
             ]
         }
     ],
@@ -442,6 +454,40 @@
                             },
                             {
                                 "taskname": "TASK-F-0从庭院进入町中",
+                                "wait": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "角色名列表-一键活动爬塔",
+            "type": "input",
+            "default": "ALL,",
+            "pipeline_override": {
+                "批量角色任务模板": {
+                    "custom_action_param": {
+                        "rolenames": "{value}",
+                        "tasks": [
+                            {
+                                "taskname": "TASK-A-0登录角色",
+                                "wait": 1
+                            },
+                            {
+                                "taskname": "任务入口-从庭院进入小樱活动爬塔探索页面",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "HD-小樱活动探索爬塔任务入口",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "任务出口-从活动页面回到庭院",
+                                "wait": 0.5
+                            },
+                            {
+                                "taskname": "TASK-B-0从庭院退出到登录界面",
                                 "wait": 1
                             }
                         ]

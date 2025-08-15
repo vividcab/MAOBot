@@ -1,0 +1,49 @@
+{
+    "任务入口-从庭院进入小樱活动爬塔探索页面": {
+        "next": ["HD-小樱活动探索爬塔任务入口", "检测已经在庭院然后开始找活动入口"],
+        "interrupt": ["INT-尝试从任意界面回到庭院"],
+        "rate_limit": 1500
+    },
+
+    "检测已经在庭院然后开始找活动入口": {
+        "recognition": "TemplateMatch",
+        "roi": [680, 220, 240, 100],
+        "template": ["庭院/枫叶庭院町中牌子.png", "庭院/初始庭院町中牌子.png"],
+        "threshold": [0.9, 0.9],
+        "next": ["检测活动入口然后点击进入"]
+    },
+    "检测活动入口然后点击进入": {
+        "recognition": "TemplateMatch",
+        "roi": [409,285,55,62],
+        "template": "小樱活动爬塔/庭院中活动快捷入口.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "next": ["检测活动探索按钮然后点击进入"],
+        "interrupt": [
+            "ACT-检测各类右上部分叉号并点一下", 
+            "ACT-检测到右上角跳过按钮并点一下", 
+            "ACT-随便点击右侧空白处"
+        ],
+        "rate_limit": 1500
+    },
+    "检测活动探索按钮然后点击进入": {
+        "recognition": "TemplateMatch",
+        "roi": [201,208,45,142],
+        "template": "小樱活动爬塔/活动探索入口.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": ["检测已经处于活动爬塔界面"]
+    },
+    "检测已经处于活动爬塔界面": {
+        "recognition": "TemplateMatch",
+        "roi": [81,8,143,53],
+        "template": "小樱活动爬塔/左上角文字.png",
+        "next": []
+    },
+
+    "任务出口-从活动页面回到庭院": {
+        "next": ["STATUS-处于庭院初始状态"],
+        "interrupt": ["INT-尝试从任意界面回到庭院"],
+        "rate_limit": 1500
+    }
+}

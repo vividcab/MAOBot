@@ -24,6 +24,18 @@ class MyAction1(CustomAction):
         
         return CustomAction.RunResult(success=True)
 
+@AgentServer.custom_action("RunTaskList")
+class RunTaskListAction(CustomAction):
+    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+        logger.debug(f"argv.custom_action_param: {argv.custom_action_param}")
+        cus_param = json.loads(argv.custom_action_param)
+        
+        tasks = cus_param['tasks']
+        logger.info(f"传入的 tasks 参数为：{tasks}")
+
+        for task in tasks:
+            task_detail = context.run_task(task["taskname"])
+            sleep(task["wait"])
 
 @AgentServer.custom_action("ForRolesToRunTask")
 class MyAction2(CustomAction):
